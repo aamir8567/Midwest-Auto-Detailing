@@ -9,7 +9,26 @@ var usersRouter = require('./routes/users');
 var aboutRouter = require('./routes/about');
 var contactRouter = require('./routes/contact');
 var productRouter = require('./routes/product');
+var helpRouter = require('./routes/help');
+var privacyRouter = require('./routes/privacy');
 var layouts = require('express-ejs-layouts');
+//var packageRouter = require('./routes/package');
+
+const mariadb = require('mariadb/callback');
+const db = mariadb.createConnection({host: 'eagle.cdm.depaul.edu',
+user: 'krazvi', password: 'krazvi', 
+database: 'detravdb'});
+// connect to database
+db.connect((err) => {
+  if (err) {
+console.log("Unable to connect to database due to error: " + err);
+	res.render('error');
+  } else
+	{
+    console.log("Connected to DB");
+  }
+});
+global.db = db;
 
 var app = express();
 
@@ -28,6 +47,10 @@ app.use('/users', usersRouter);
 app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
 app.use('/product', productRouter);
+app.use('/help', helpRouter);
+app.use('/privacy', privacyRouter);
+//app.use('/privacy', privacyRouter);
+//app.use('/package', packageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
