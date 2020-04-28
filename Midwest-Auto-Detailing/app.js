@@ -12,12 +12,12 @@ var productRouter = require('./routes/product');
 var helpRouter = require('./routes/help');
 var privacyRouter = require('./routes/privacy');
 var layouts = require('express-ejs-layouts');
-//var packageRouter = require('./routes/package');
+var customerRouter = require('./routes/customer');
 
 const mariadb = require('mariadb/callback');
 const db = mariadb.createConnection({host: 'eagle.cdm.depaul.edu',
-user: 'krazvi', password: 'krazvi', 
-database: 'detravdb'});
+user: 'mpate180', password: 'mpate180', 
+database: 'midwestauto'});
 // connect to database
 db.connect((err) => {
   if (err) {
@@ -49,8 +49,7 @@ app.use('/contact', contactRouter);
 app.use('/product', productRouter);
 app.use('/help', helpRouter);
 app.use('/privacy', privacyRouter);
-//app.use('/privacy', privacyRouter);
-//app.use('/package', packageRouter);
+app.use('/customer', customerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

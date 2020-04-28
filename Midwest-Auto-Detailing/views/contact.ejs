@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+</head>
+
+<body>
+    <section id="contact">
+        <div class="contact-main">
+            <div class="contact-text">
+                <h1>Contact Us</h1>
+                <i class='fas fa-phone' style='font-size:24px'></i>
+                +1 (111) 222-3333
+
+                <p>For prices, quotes or questions please call us or fill out the contact us form below and we will get back to you as soon as possible.</p>
+            </div>
+            <br>
+            <div class="contact-form">
+                Please fill out the form below to contact Midwest Auto Detailing! <br>
+                We'll get back to you as soon as possible.<br><br>
+
+                <form id="contactUsForm">
+                    <!---------------------FIX THE FORM!!!------------------------->
+                    Name *<br>
+                    <input type="text" name="FirstName" id="FName" placeholder="First Name">
+                    <input Type="text" name="Last Name" id="LName" placeholder="Last Name"><br>
+
+                    Phone *<br>
+                    <input type="text" name="PhoneNumber" id="PhNumber" placeholder="(000)000-0000"> <br>
+
+                    Email *<br>
+                    <input type="text" name="Email" id="Email"> <br>
+
+                    Vehicle Year *<br>
+                    <input type="text" name="VehYear" id="VehYear"> <br>
+
+                    Vehicle Make *<br>
+                    <input type="text" name="VehMake" id="VehMake"> <br>
+
+                    Vehicle Model *<br>
+                    <input type="text" name="VehModel" id="VehModel"> <br>
+
+                    Vehicle Color *<br>
+                    <input type="text" name="VehColor" id="VehColor"> <br>
+
+                    Type Of Service * <br>
+
+                    <input type="radio" id="InteriorDetailing" name="InteriorDetailing" value="InteriorDetailing">
+                    <label for="InteriorDetailing">Interior Detailing</label><br>
+
+                    <input type="radio" id="ExteriorDetailing" name="ExteriorDetailing" value="ExteriorDetailing">
+                    <label for="ExteriorDetailing">Exterior Detailing</label><br>
+
+                    <input type="radio" id="PaintCorrection" name="PaintCorrection" value="PaintCorrection">
+                    <label for="PaintCorrection">Paint Correction</label><br>
+
+                    <input type="radio" id="Tint" name="Tint" value="Tint">
+                    <label for="Tint">Tinting</label><br><br>
+
+                    Additional Details <br>
+                    <textarea type ="textarea" id="Details" cols="38" rows="5"></textarea> <br><br>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
