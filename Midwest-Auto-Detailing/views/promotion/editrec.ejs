@@ -1,0 +1,32 @@
+<h1> Edit Promotion</h1>
+<form action="/promotion/save" method="post">
+    <input type="hidden" name="promo_id" value="<%= rec.promo_id %>">
+    <table>
+        <tr>
+            <td> Promo Name : </td>
+            <td> <input type="text" name="promo_name" value=<%= rec.promo_name %> required> </td>
+        </tr>
+        <tr>
+            <td> Promo Desc: </td>
+            <td> <input type="text" name="promo_desc" value=<%= rec.promo_desc %> required> </td>
+        </tr>
+        <tr>
+            <td> Promo Image: </td>
+            <td> <input type="text" name="promo_image" value=<%= rec.promo_image %> required> </td>
+        </tr>
+
+        <tr>
+            <td> Start Date: </td>
+            <td> <input type="text" name="start_date" value=<%= rec.start_date %> required> </td>
+        </tr>
+        <tr>
+            <td> End Date: </td>
+            <td> <input type="text" name="end_date" value=<%= rec.end_date %> required> </td>
+        </tr>
+        <tr>
+            <td> Discount Amount: </td>
+            <td> <input type="text" name="discount_amount" value=<%= rec.discount_amount %> required> </td>
+        </tr>
+    </table>
+    <button type="submit">Save</button>
+</form>

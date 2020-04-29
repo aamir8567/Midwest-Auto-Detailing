@@ -13,6 +13,9 @@ var helpRouter = require('./routes/help');
 var privacyRouter = require('./routes/privacy');
 var layouts = require('express-ejs-layouts');
 var customerRouter = require('./routes/customer');
+var carRouter = require('./routes/car');
+var promotionRouter = require('./routes/promotion');
+var serviceRouter = require('./routes/service');
 
 const mariadb = require('mariadb/callback');
 const db = mariadb.createConnection({host: 'eagle.cdm.depaul.edu',
@@ -50,6 +53,9 @@ app.use('/product', productRouter);
 app.use('/help', helpRouter);
 app.use('/privacy', privacyRouter);
 app.use('/customer', customerRouter);
+app.use('/car', carRouter);
+app.use('/promotion', promotionRouter);
+app.use('/service', serviceRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

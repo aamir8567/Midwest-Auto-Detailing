@@ -1,0 +1,42 @@
+<h1> Edit Car</h1>
+<form action="/car/save" method="post">
+    <input type="hidden" name="car_id" value="<%= rec.car_id %>">
+    <table>
+        <tr>
+            <td> Car Year : </td>
+            <td> <input type="text" name="caryear" value=<%= rec.caryear %> required> </td>
+        </tr>
+        <tr>
+            <td> Car Make: </td>
+            <td> <input type="text" name="carmake" value=<%= rec.carmake %> required> </td>
+        </tr>
+        <tr>
+            <td> Model: </td>
+            <td> <input type="text" name="model" value=<%= rec.model %> required> </td>
+        </tr>
+
+        <tr>
+            <td> Car Type: </td>
+            <td> <select name="cartype" value=<%=rec.cartype %> required>
+                    <option selected disabled>Choose Car Type</option>
+                    <option>Sedan</option>
+                    <option>SUV</option>
+                    <option>Coupe</option>
+                    <option>Other</option>
+                </select> </td>
+        </tr>
+        <tr>
+            <td> Vin: </td>
+            <td> <input type="text" name="vin" value=<%= rec.vin %> required> </td>
+        </tr>
+        <tr>
+            <td> License Plate: </td>
+            <td> <input type="text" name="license_plate" value=<%= rec.license_plate %> required> </td>
+        </tr>
+        <tr>
+            <td> Car Color: </td>
+            <td> <input type="text" name="carcolor" value=<%= rec.carcolor %> required> </td>
+        </tr>
+        </table>
+    <button type="submit">Save</button>
+</form>

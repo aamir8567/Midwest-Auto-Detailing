@@ -23,7 +23,7 @@ topnav {
 }
 
 /* Style the links inside the navigation bar */
-.topnav a {
+.topnav a{
     float: left;
     position: sticky;
     color: #DDDAE0;
@@ -32,6 +32,43 @@ topnav {
     text-decoration: none;
     font-size: 17px;
     background-color: #26282E;
+
+}
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+.dropbtn {
+  font-size: inherit;  
+  border: none;
+  outline: none;
+  color: #DDDAE0;
+  background-color: inherit;
+  font-family: inherit;
+  overflow: hidden;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #26282E;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 /* Change the color of links on hover */
@@ -50,6 +87,7 @@ topnav {
 .shop-name img {
     width: 500px;
 }
+
 
 /*about page*/
 

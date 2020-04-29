@@ -1,0 +1,41 @@
+<h1> New Car</h1>
+<form action="/car" method="post">
+    <table>
+        <tr>
+            <td> Car Year : </td>
+            <td> <input type="text" name="caryear" required> </td>
+        </tr>
+        <tr>
+            <td> Car Make: </td>
+            <td> <input type="text" name="carmake" required> </td>
+        </tr>
+        <tr>
+            <td> Model: </td>
+            <td> <input type="text" name="model" required> </td>
+        </tr>
+
+        <tr>
+            <td> Car Type: </td>
+            <td> <select name="cartype" required>
+                    <option selected disabled>Choose Car Type</option>
+                    <option>Sedan</option>
+                    <option>SUV</option>
+                    <option>Coupe</option>
+                    <option>Other</option>
+                </select> </td>
+        </tr>
+        <tr>
+            <td> Vin : </td>
+            <td> <input type="text" name="vin" required> </td>
+        </tr>
+        <tr>
+            <td> license Plate: </td>
+            <td> <input type="text" name="license_plate" required> </td>
+        </tr>
+        <tr>
+            <td> Car Color: </td>
+            <td> <input type="text" name="carcolor" required> </td>
+        </tr>
+    </table>
+    <button type="submit">Save</button>
+</form>
