@@ -1,0 +1,32 @@
+<h1> New Work Order</h1>
+<form action="/workorder" method="post">
+    <table>
+        <tr>
+            <td> Customer ID : </td>
+            <td> <input type="text" name="customer_id" required> </td>
+        </tr>
+
+        <tr>
+            <td> Car ID: </td>
+            <td> <input type="text" name="car_id" required> </td>
+        </tr>
+
+        <tr>
+            <td> Promo ID: </td>
+            <td> <input type="text" name="promo_id" required> </td>
+        </tr>
+        <tr>
+            <td> Additional Details: </td>
+            <td> <input type="text" name="addi_details" required> </td>
+        </tr>
+        <tr>
+            <td> Purchase Date: </td>
+            <td> <input type="date" name="purchase_date" required> </td>
+        </tr>
+        <tr>
+            <td> payment_status: </td>
+            <td> <input type="text" name="payment_status" required> </td>
+        </tr>
+    </table>
+    <button type="submit">Save</button>
+</form>

@@ -1,0 +1,35 @@
+<h1> Edit Promotion</h1>
+<form action="/order_detail/save" method="post">
+    <input type="hidden" name="orderdetail_id" value="<%= rec.orderdetail_id %>">
+    <table>
+        <tr>
+            <td> Order ID : </td>
+            <td> <input type="text" name="order_id" value=<%= rec.order_id %> required> </td>
+        </tr>
+       <tr>
+            <td> Category ID: </td>
+            <td> <select name="service_id" required>
+		            <% for (var i = 0; i < service.length; i++) { %>
+			        <% if (service[i].service_id == rec.service_id) { %>
+		            <option selected value=<%= service[i].service_id %>>
+                    <%= service[i].service_name %></option>
+                    <% 
+                } else { %>
+			      <option value=<%= service[i].service_id %>> 
+                    <%= service[i].service_name %></option>
+			    <% } }%>
+		        </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td> Sale Price: </td>
+            <td> <input type="text" name="sale_price" value=<%= rec.sale_price %> required> </td>
+        </tr>
+        <tr>
+            <td> Quantity: </td>
+            <td> <input type="text" name="quantity" value=<%= rec.quantity %> required> </td>
+        </tr>
+    </table>
+    <button type="submit">Save</button>
+</form>

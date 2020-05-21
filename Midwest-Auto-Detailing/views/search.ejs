@@ -1,0 +1,23 @@
+<h1>Search Results</h1>
+<% if (allrecs.length > 0) {%>
+<table border=1 >
+    <tr>
+        <th>Service ID</th>
+        <th>Service Name</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>
+    <% allrecs.forEach((recref, index) => { %>
+    <tr>
+        <td><%= recref.service_id %></td>
+        <td><%= recref.service_name %></td>
+        <td><%= recref.description %></td>
+        <td><%= recref.price %></td>
+        <td><a href='/service/<%= recref.service_id %>'> Details</a></td>
+    </tr>
+    <% }); %>
+</table>
+
+<% } else { %>
+<p>Not Search Results Available</p>
+<% } %>

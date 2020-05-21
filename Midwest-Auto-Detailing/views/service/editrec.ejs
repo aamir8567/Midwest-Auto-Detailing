@@ -1,0 +1,20 @@
+<h1> Edit Service</h1>
+<form action="/service/save" method="post">
+    <input type="hidden" name="service_id" value="<%= rec.service_id %>">
+    <table>
+        <tr>
+            <td> Service Name : </td>
+            <td> <input type="text" name="service_name" value=<%= rec.service_name %> required> </td>
+        </tr>
+        <tr>
+            <td> Description : </td>
+            <td> <input type="text" name="description" value=<%= rec.description %> required> </td>
+        </tr>
+        <tr>
+            <td> Price : </td>
+            <td> <input type="text" name="price" value=<%= rec.price %> required> </td>
+        </tr>
+
+        </table>
+    <button type="submit">Save</button>
+</form>

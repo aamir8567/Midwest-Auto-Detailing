@@ -1,0 +1,32 @@
+<h1> New Promotion</h1>
+<form action="/promotion" method="post">
+    <table>
+        <tr>
+            <td> Promo Name : </td>
+            <td> <input type="text" name="promo_name" required> </td>
+        </tr>
+        <tr>
+            <td> Promo Description: </td>
+            <td> <textarea name="promo_desc" rows="10" cols="30"> Description </textarea> </td>
+        </tr>
+
+        <tr>
+            <td> Promo Image: </td>
+            <td> <input type="text" name="promo_image" required> </td>
+        </tr>
+
+        <tr>
+            <td> Start Date: </td>
+            <td> <input type="date" name="start_date" required> </td>
+        </tr>
+        <tr>
+            <td> end_date: </td>
+            <td> <input type="date" name="end_date" required> </td>
+        </tr>
+        <tr>
+            <td> discount_amount: </td>
+            <td> <input type="text" name="discount_amount" required> </td>
+        </tr>
+    </table>
+    <button type="submit">Save</button>
+</form>

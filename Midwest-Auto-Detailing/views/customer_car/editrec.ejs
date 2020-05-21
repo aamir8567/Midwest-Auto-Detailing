@@ -1,0 +1,16 @@
+<h1> Edit Customer's Car</h1>
+<form action="/customer_car/save" method="post">
+    <input type="hidden" name="promo_id" value="<%= rec.promo_id %>">
+    <table>
+        <tr>
+            <td> Car ID : </td>
+            <td> <input type="text" name="promo_name" value=<%= rec.car_id %> required> </td>
+        </tr>
+        <tr>
+            <td> Customer ID: </td>
+            <td> <input type="text" name="promo_desc" value=<%= rec.customer_id %> required> </td>
+        </tr>
+        
+    </table>
+    <button type="submit">Save</button>
+</form>

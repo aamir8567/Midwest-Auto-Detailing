@@ -1,0 +1,33 @@
+<h1> New Order Detail</h1>
+<form action="/order_detail" method="post">
+    <table>
+        <tr>
+            <td> Order ID : </td>
+            <td> <input type="text" name="order_id" required> </td>
+        </tr>
+        <tr>
+            <td> Service ID: </td>
+                <td>                     
+                    <select name ="service_id" required>
+                            <optgroup label="Select Table">
+                                <% for (var i=0; i < service.length; i++) { %>
+                                    <option value = <%= service[i].service_id %>  >
+                                        <%= service[i].service_name %> </option>
+                               <% } %>
+                            </optgroup>
+
+                    </select>
+            
+            </td>
+        </tr>
+        <tr>
+            <td> Sale Price: </td>
+            <td> <input type="text" name="sale_price" required> </td>
+        </tr>
+        <tr>
+            <td> quantity: </td>
+            <td> <input type="text" name="quantity" required> </td>
+        </tr>
+    </table>
+    <button type="submit">Save</button>
+</form>

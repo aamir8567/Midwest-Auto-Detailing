@@ -1,0 +1,30 @@
+<h1>Promotion Table Listing</h1>
+<% if (allrecs.length > 0) {%>
+<table border=1 >
+    <tr>
+        <th>Promo ID</th>
+        <th>Promo Name</th>
+        <th>Promo Desc</th>
+        <th>Promo Image</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Discount Amount</th>
+    </tr>
+    <% allrecs.forEach((recref, index) => { %>
+    <tr>
+        <td><%= recref.promo_id %></td>
+        <td><%= recref.promo_name %></td>
+        <td><%= recref.promo_desc %></td>
+        <td><%= recref.promo_image %></td>
+        <td><%= recref.start_date %></td>
+        <td><%= recref.end_date %></td>
+        <td><%= recref.discount_amount %></td>
+       
+        <td><a href='/promotion/<%= recref.promo_id %>'> Details</a></td>
+    </tr>
+    <% }); %>
+</table>
+
+<% } else { %>
+<p>Not Records Available</p>
+<% } %>

@@ -1,0 +1,58 @@
+<h1> Edit Review</h1>
+<form action="/review/save" method="post">
+    <input type="hidden" name="review_id" value="<%= rec.review_id %>">
+    <table>
+        <tr>
+            <td> Customer ID : </td>
+            <td> <input type="text" name="customer_id" value=<%= rec.customer_id %> required> </td>
+        </tr>
+        <tr>
+            <td> Service ID: </td>
+            <td> <input type="text" name="service_id" value=<%= rec.service_id %> required> </td>
+        </tr>
+        <tr>
+            <td> Review Date: </td>
+            <td> <input type="date" name="review_date" value=<%= rec.review_date.toISOString().split('T')[0] %> required> </td>
+        </tr>
+
+        <tr>
+            <td> Comment: </td>
+            <td> <input type="text" name="comment" value=<%= rec.comment %> required> </td>
+        </tr>
+        <tr> <td> Rating: </td> 
+            <td> 
+                <% if (rec.rating == 1) { %>
+                    <input type="radio" name="rating" value="1" checked="true">★ <br/> 
+                <% } else { %>
+                    <input type="radio" name="rating" value="1">★ <br/> 
+                <% }%>
+        
+                <% if (rec.rating == 2) { %>
+                    <input type="radio" name="rating" value="2" checked="true">★★<br/> 
+                <% } else { %>
+                    <input type="radio" name="rating" value="2">★★<br/> 
+                <% }%>
+        
+                <% if (rec.rating == 3) { %>
+                    <input type="radio" name="rating" value="3" checked="true">★★★<br/> 
+                <% } else { %>
+                    <input type="radio" name="rating" value="3">★★★<br/> 
+                <% }%>
+        
+                <% if (rec.rating == 4) { %>
+                    <input type="radio" name="rating" value="4" checked="true">★★★★<br/> 
+                <% } else { %>
+                    <input type="radio" name="rating" value="4">★★★★<br/> 
+                <% }%>
+        
+                <% if (rec.rating == 5) { %>
+                    <input type="radio" name="rating" value="5" checked="true">★★★★★<br/> 
+                <% } else { %>
+                    <input type="radio" name="rating" value="5">★★★★★<br/> 
+                <% }%>
+            </td> 
+        </tr>
+        
+    </table>
+    <button type="submit">Save</button>
+</form>
