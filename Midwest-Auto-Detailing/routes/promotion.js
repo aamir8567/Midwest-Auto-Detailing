@@ -9,6 +9,13 @@ router.get('/addrecord', function (req, res, next) {
 });
 
 // ==================================================
+// Route For Home page.
+// ==================================================
+
+  
+
+
+// ==================================================
 // Route to list all records. Display view to list all records
 // ==================================================
 
@@ -86,7 +93,7 @@ router.get('/:recordid/edit', function (req, res, next) {
 // Route to save edited data in database.
 // ==================================================
 router.post('/save', function (req, res, next) {
-    let updatequery = "UPDATE promotion SET promo_name = ?, promo_desc = ?, promo_image = ?, start_date = ?, end_date = ?, discount_amount = ?, WHERE promo_id = " + req.body.promo_id;
+    let updatequery = "UPDATE promotion SET promo_name = ?, promo_desc = ?, promo_image = ?, start_date = ?, end_date = ?, discount_amount = ? WHERE promo_id = " + req.body.promo_id;
 
     db.query(updatequery, [req.body.promo_name, req.body.promo_desc, req.body.promo_image, req.body.start_date, req.body.end_date, req.body.discount_amount], (err, result) => {
         if (err) {

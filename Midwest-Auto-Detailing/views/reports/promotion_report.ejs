@@ -21,9 +21,6 @@
         <td><%= recref.discount_amount %></td>
        
         <td><a href='/promotion/<%= recref.promo_id %>'> Details</a></td>
-        <td><a href='/promotion/<%= recref.promo_id %>/edit'>Edit</a></td>
-        <td><a href='/promotion/<%= recref.promo_id %>/delete' onclick="return confirm('Are you sure you want to delete this record?');">Delete</a></td>
-
     </tr>
     <% }); %>
 </table>
@@ -31,4 +28,3 @@
 <% } else { %>
 <p>Not Records Available</p>
 <% } %>
-<p> <a href='/promotion/addrecord'>Add New</a> </p>

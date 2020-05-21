@@ -1,0 +1,58 @@
+<h1> Edit Customer</h1>
+<form action="/customer/save" method="post">
+    <input type="hidden" name="customer_id" value="<%= rec.customer_id %>">
+    <table>
+        <tr>
+            <td> FirstName : </td>
+            <td> <input type="text" name="firstname" value=<%= rec.firstname %> required> </td>
+        </tr>
+        <tr>
+            <td> Middle Name: </td>
+            <td> <input type="text" name="middlename" value=<%= rec.middlename %> required> </td>
+        </tr>
+        <tr>
+            <td> Last Name: </td>
+            <td> <input type="text" name="lastname" value=<%= rec.lastname %> required> </td>
+        </tr>
+
+        <tr>
+            <td> Email: </td>
+            <td> <input type="text" name="email" value=<%= rec.email %> required> </td>
+        </tr>
+        <tr>
+            <td> Phone: </td>
+            <td> <input type="text" name="phone" value=<%= rec.phone %> required> </td>
+        </tr>
+        <tr>
+            <td> Address 1: </td>
+            <td> <input type="text" name="address1" value=<%= rec.address1 %> required> </td>
+        </tr>
+        <tr>
+            <td> Address 2: </td>
+            <td> <input type="text" name="address2" value=<%= rec.address2 %> required> </td>
+        </tr>
+        <tr>
+            <td> City: </td>
+            <td> <input type="text" name="city" value=<%= rec.city %> required> </td>
+        </tr>
+        <tr>
+            <td> State: </td>
+            <td> <input type="text" name="state" value=<%= rec.state %> required> </td>
+        </tr>
+
+        <tr>
+            <td> Zip Code: </td>
+            <td> <input type="text" name="zip" value=<%= rec.zip %> required> </td>
+        </tr>
+        <tr>
+            <td> UserName: </td>
+            <td> <input type="text" name="username" value=<%= rec.username %> required> </td>
+        </tr>
+        <tr>
+            <td> Password: </td>
+            <td> <input type="text" name="password" value=<%= rec.password %> required> </td>
+        </tr>
+
+    </table>
+    <button type="submit">Save</button>
+</form>

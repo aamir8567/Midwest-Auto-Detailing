@@ -5,15 +5,17 @@ var router = express.Router();
 // Route to show empty form to obtain input form end-user.
 // ==================================================
 router.get('/addrecord', function (req, res, next) {
-    res.render('car/addrec');
+    res.render('workorder/addrec');
 });
+
+ 
 
 // ==================================================
 // Route to list all records. Display view to list all records
 // ==================================================
 
 router.get('/', function (req, res, next) {
-    let query = "SELECT car_id,caryear,carmake,model,cartype,vin,license_plate,carcolor FROM car";
+    let query = "SELECT order_id,customer_id,car_id,promo_id,addi_details,purchase_date,payment_status FROM workorder";
 
     // execute query
     db.query(query, (err, result) => {
@@ -21,7 +23,7 @@ router.get('/', function (req, res, next) {
             console.log(err);
             res.render('error');
         }
-        res.render('car/allrecords', {
+        res.render('workorder/allrecords', {
             allrecs: result
         });
     });
@@ -31,7 +33,7 @@ router.get('/', function (req, res, next) {
 // Route to view one specific record. Notice the view is one record
 // ==================================================
 router.get('/:recordid', function (req, res, next) {
-    let query = "SELECT car_id,caryear,carmake,model,cartype,vin,license_plate,carcolor FROM car WHERE car_id = " + req.params.recordid;
+    let query = "SELECT order_id,customer_id,car_id,promo_id,addi_details,purchase_date,payment_status FROM workorder WHERE order_id = " + req.params.recordid;
 
     // execute query
     db.query(query, (err, result) => {
@@ -39,7 +41,7 @@ router.get('/:recordid', function (req, res, next) {
             console.log(err);
             res.render('error');
         } else {
-            res.render('car/onerec', {
+            res.render('workorder/onerec', {
                 onerec: result[0]
             });
         }
@@ -51,14 +53,14 @@ router.get('/:recordid', function (req, res, next) {
 // ==================================================
 router.post('/', function (req, res, next) {
 
-    let insertquery = "INSERT INTO car (caryear,carmake,model,cartype,vin,license_plate,carcolor) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
+    let insertquery = "INSERT INTO workorder (customer_id,car_id,promo_id,addi_details,purchase_date,payment_status) VALUES (?, ?, ?, ?, ?, ?)";
 
-    db.query(insertquery, [req.body.caryear, req.body.carmake, req.body.model, req.body.cartype, req.body.vin, req.body.license_plate, req.body.carcolor], (err, result) => {
+    db.query(insertquery, [req.body.customer_id, req.body.car_id, req.body.promo_id, req.body.addi_details, req.body.purchase_date, req.body.payment_status], (err, result) => {
         if (err) {
             console.log(err);
             res.render('error');
         } else {
-            res.redirect('/car');
+            res.redirect('/workorder');
         }
     });
 });
@@ -67,7 +69,7 @@ router.post('/', function (req, res, next) {
 // Route to edit one specific record.
 // ==================================================
 router.get('/:recordid/edit', function (req, res, next) {
-    let query = "SELECT car_id,caryear,carmake,model,cartype,vin,license_plate,carcolor FROM car WHERE car_id = " + req.params.recordid;
+    let query = "SELECT order_id,customer_id,car_id,promo_id,addi_details,purchase_date,payment_status FROM workorder WHERE order_id = " + req.params.recordid;
 
     // execute query
     db.query(query, (err, result) => {
@@ -75,7 +77,7 @@ router.get('/:recordid/edit', function (req, res, next) {
             console.log(err);
             res.render('error');
         } else {
-            res.render('car/editrec', {
+            res.render('workorder/editrec', {
                 rec: result[0]
             });
         }
@@ -86,14 +88,14 @@ router.get('/:recordid/edit', function (req, res, next) {
 // Route to save edited data in database.
 // ==================================================
 router.post('/save', function (req, res, next) {
-    let updatequery = "UPDATE car SET caryear = ?, carmake = ?, model = ?, cartype = ?, vin = ?, license_plate = ?, carcolor = ?  WHERE car_id = " + req.body.car_id;
+    let updatequery = "UPDATE workorder SET customer_id = ?, car_id = ?, promo_id = ?, addi_details = ?, purchase_date = ?, payment_status = ? WHERE order_id = " + req.body.customer_id;
 
-    db.query(updatequery, [req.body.caryear, req.body.carmake, req.body.model, req.body.cartype, req.body.vin, req.body.license_plate, req.body.carcolor], (err, result) => {
+    db.query(updatequery, [req.body.customer_id, req.body.car_id, req.body.promo_id, req.body.addi_details, req.body.purchase_date, req.body.payment_status], (err, result) => {
         if (err) {
             console.log(err);
             res.render('error');
         } else {
-            res.redirect('/car');
+            res.redirect('/workorder');
         }
     });
 });
@@ -102,7 +104,7 @@ router.post('/save', function (req, res, next) {
 // Route to delete one specific record.
 // ==================================================
 router.get('/:recordid/delete', function (req, res, next) {
-    let query = "DELETE FROM car WHERE car_id = " + req.params.recordid;
+    let query = "DELETE FROM workorder WHERE order_id = " + req.params.recordid;
 
     // execute query
     db.query(query, (err, result) => {
@@ -110,7 +112,7 @@ router.get('/:recordid/delete', function (req, res, next) {
             console.log(err);
             res.render('error');
         } else {
-            res.redirect('/car');
+            res.redirect('/workorder');
         }
     });
 });

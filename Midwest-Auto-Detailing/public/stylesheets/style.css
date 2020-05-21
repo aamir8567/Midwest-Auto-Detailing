@@ -11,11 +11,11 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
-.header-table{
-     background-color: #DDDAE0;
-    color:#8594AE;
-}
 
+.header-table {
+    background-color: #DDDAE0;
+    color: #8594AE;
+}
 
 topnav {
     background-color: #26282E;
@@ -23,7 +23,7 @@ topnav {
 }
 
 /* Style the links inside the navigation bar */
-.topnav a{
+.topnav a {
     float: left;
     position: sticky;
     color: #DDDAE0;
@@ -34,41 +34,46 @@ topnav {
     background-color: #26282E;
 
 }
+
 .dropdown {
-  float: left;
-  overflow: hidden;
+    float: left;
+    overflow: hidden;
 }
+
 .dropbtn {
-  font-size: inherit;  
-  border: none;
-  outline: none;
-  color: #DDDAE0;
-  background-color: inherit;
-  font-family: inherit;
-  overflow: hidden;
+    font-size: inherit;
+    border: none;
+    outline: none;
+    color: #DDDAE0;
+    background-color: inherit;
+    font-family: inherit;
+    overflow: hidden;
 }
+
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #26282E;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+    display: none;
+    position: absolute;
+    background-color: #26282E;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
 .dropdown-content a {
-  float: none;
-  color: #fff;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+    float: none;
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
 }
+
 .dropdown-content a:hover {
-  background-color: #ddd;
+    background-color: #ddd;
 }
+
 .dropdown:hover .dropdown-content {
-  display: block;
+    display: block;
 }
 
 /* Change the color of links on hover */
@@ -87,12 +92,14 @@ topnav {
 .shop-name img {
     width: 500px;
 }
-
+.shop-name {
+    height: 50vh;
+}
 
 /*about page*/
 
 .about-description h1 {
-    margin-top:30px;
+    margin-top: 30px;
     font-size: 36px;
     text-align: center;
     background-attachment: fixed;
@@ -126,7 +133,8 @@ topnav {
     padding: 15px;
     border-style: solid;
 }
-.contact-form input[type=text]  {
+
+.contact-form input[type=text] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -137,7 +145,8 @@ topnav {
     font-size: 20px;
 
 }
-.contact-form input[type=textarea]  {
+
+.contact-form input[type=textarea] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -156,49 +165,42 @@ topnav {
 /*---------FOOTER----------------*/
 
 #footer {
-width:auto;
+    width: auto;
     background-color: #DDDAE0;
 }
 
-.footer-column {
-  float: left;
-    
-}
-
-.left, .right {
-    color:aqua;
-  width: 25%;
-}
-
-.middle {
-    color:red;
-  width: 50%;
-}
-
-.footer-row
-{
-    width: 80%;
-    margin: auto;
-}
-
-.col-left
-{
-    width: 33.3%;
-    padding: 20px;
+.container-footer{
     text-align: center;
+    display: flex;
+
 }
-.col-mid
-{
-    width: 33.3%;
-    border-style: none solid none solid;
-    padding: 20px;
-    text-align: center;
-    
+
+
+.col-left{
+    flex: 1;
+    border-right: solid 2px;
 }
-.col-right
-{
-    width: 33.3%;    
-    padding:20px;
-    text-align: center;
+.col-middle{
+    flex: 1;
+    border-right: solid 2px;
+
+}
+.col-right{
+    flex: 1;
+}
+
+
+/* For Promotions listings */
+.promo-images {
+    position: relative;
+    color:#fff;
+}
+.promo-images img{
+    float: left;
+    height: 300px;
+    width: 300px;
+    padding: 10px;
+    left: 0;
+    bottom: 0;
     
 }

@@ -1,0 +1,26 @@
+<h1>Customer Table Listing</h1>
+<% if (allrecs.length > 0) {%>
+<table border=1 >
+    <tr>
+        <th>Order Detail ID</th>
+        <th>Order ID</th>
+        <th>Service ID</th>
+        <th>Sale Price</th>
+        <th>Quantity</th>
+    </tr>
+    <% allrecs.forEach((recref, index) => { %>
+    <tr>
+        <td><%= recref.orderdetail_id %></td>
+        <td><%= recref.order_id %></td>
+        <td><%= recref.service_id %></td>
+        <td><%= recref.sale_price %></td>
+        <td><%= recref.quantity %></td>
+        
+        <td><a href='/order_detail/<%= recref.orderdetail_id %>'> Details</a></td>
+    </tr>
+    <% }); %>
+</table>
+
+<% } else { %>
+<p>Not Records Available</p>
+<% } %>

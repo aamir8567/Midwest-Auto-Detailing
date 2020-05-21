@@ -1,0 +1,34 @@
+<h1>Work Order Table Listing</h1>
+<% if (allrecs.length > 0) {%>
+<table border=1 >
+    <tr>
+        <th>Order ID</th>
+        <th>Customer ID</th>
+        <th>Car ID</th>
+        <th>Promotion ID</th>
+        <th>Additional Details</th>
+        <th>Purchase Date</th>
+        <th>Payment Status</th>
+    </tr>
+    <% allrecs.forEach((recref, index) => { %>
+    <tr>
+        <td><%= recref.order_id %></td>
+        <td><%= recref.customer_id %></td>
+        <td><%= recref.car_id %></td>
+        <td><%= recref.promo_id %></td>
+        <td><%= recref.addi_details %></td>
+        <td><%= recref.purchase_date %></td>
+        <td><%= recref.payment_status %></td>
+       
+        <td><a href='/workorder/<%= recref.order_id %>'> Details</a></td>
+        <td><a href='/workorder/<%= recref.order_id %>/edit'>Edit</a></td>
+        <td><a href='/workorder/<%= recref.order_id %>/delete' onclick="return confirm('Are you sure you want to delete this record?');">Delete</a></td>
+
+    </tr>
+    <% }); %>
+</table>
+
+<% } else { %>
+<p>Not Records Available</p>
+<% } %>
+<p> <a href='/workorder/addrecord'>Add New</a> </p>

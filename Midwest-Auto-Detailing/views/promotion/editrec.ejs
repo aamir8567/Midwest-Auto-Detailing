@@ -17,11 +17,11 @@
 
         <tr>
             <td> Start Date: </td>
-            <td> <input type="text" name="start_date" value=<%= rec.start_date %> required> </td>
+            <td> <input type="date" name="start_date" value=<%= rec.start_date.toISOString().split('T')[0] %> required> </td>
         </tr>
         <tr>
             <td> End Date: </td>
-            <td> <input type="text" name="end_date" value=<%= rec.end_date %> required> </td>
+            <td> <input type="date" name="end_date" value=<%= rec.end_date.toISOString().split('T')[0] %> required> </td>
         </tr>
         <tr>
             <td> Discount Amount: </td>

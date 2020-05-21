@@ -1,8 +1,16 @@
 
     <section id="header">
         <div class="container text-center">
-            <div class="shop-name">
-    
-            </div>
+            <div class="shop-name"> <!--Main image of the homepage-->
+            </div><!-- End of shop-name DIV-->
+
+            <div class="promo-images"  >
+                    <% if (promos.length > 0) { %>
+                        <% promos.forEach( (promoref, index) => {  %>
+                            <img src="/images/<%= promoref.promo_image %>" alt="<%= promoref.promo_name %>" >
+                        <% }); %>
+                    <% } %>
+                  
+            </div><!-- End of promo-images DIV-->
         </div>
     </section>
