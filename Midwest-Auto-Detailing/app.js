@@ -22,8 +22,10 @@ var order_detailRouter = require('./routes/order_detail');
 var customer_carRouter = require('./routes/customer_car');
 var searchRouter = require('./routes/search');
 var reportRouter = require('./routes/report');
+var catalogRouter = require('./routes/catalog');
 
-
+const cart = [];
+global.cart = cart;
 const mariadb = require('mariadb/callback');
 const db = mariadb.createConnection({host: 'eagle.cdm.depaul.edu',
 user: 'mpate180', password: 'mpate180', 
@@ -69,6 +71,7 @@ app.use('/order_detail', order_detailRouter);
 app.use('/customer_car', customer_carRouter);
 app.use('/search', searchRouter);
 app.use('/report', reportRouter);
+app.use('/catalog', catalogRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

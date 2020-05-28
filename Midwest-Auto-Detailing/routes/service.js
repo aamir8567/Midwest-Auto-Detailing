@@ -13,7 +13,7 @@ router.get('/addrecord', function (req, res, next) {
 // ==================================================
 
 router.get('/', function (req, res, next) {
-    let query = "SELECT service_id,service_name,description,price FROM service";
+    let query = "SELECT service_id,service_name,description,price,serviceimg FROM service";
 
     // execute query
     db.query(query, (err, result) => {
@@ -31,7 +31,7 @@ router.get('/', function (req, res, next) {
 // Route to view one specific record. Notice the view is one record
 // ==================================================
 router.get('/:recordid', function (req, res, next) {
-    let query = "SELECT service_id,service_name,description,price FROM service WHERE service_id = " + req.params.recordid;
+    let query = "SELECT service_id,service_name,description,price,serviceimg FROM service WHERE service_id = " + req.params.recordid;
 
     // execute query
     db.query(query, (err, result) => {
@@ -51,9 +51,9 @@ router.get('/:recordid', function (req, res, next) {
 // ==================================================
 router.post('/', function (req, res, next) {
 
-    let insertquery = "INSERT INTO service (service_name,description,price) VALUES (?, ?, ?)";
+    let insertquery = "INSERT INTO service (service_name,description,price,serviceimg) VALUES (?, ?, ?, ?)";
 
-    db.query(insertquery, [req.body.service_name, req.body.description, req.body.price], (err, result) => {
+    db.query(insertquery, [req.body.service_name, req.body.description, req.body.price,req.body.serviceimg], (err, result) => {
         if (err) {
             console.log(err);
             res.render('error');
@@ -67,7 +67,7 @@ router.post('/', function (req, res, next) {
 // Route to edit one specific record.
 // ==================================================
 router.get('/:recordid/edit', function (req, res, next) {
-    let query = "SELECT service_id,service_name,description,price FROM service WHERE service_id = " + req.params.recordid;
+    let query = "SELECT service_id,service_name,description,price,serviceimg FROM service WHERE service_id = " + req.params.recordid;
 
     // execute query
     db.query(query, (err, result) => {
@@ -86,9 +86,9 @@ router.get('/:recordid/edit', function (req, res, next) {
 // Route to save edited data in database.
 // ==================================================
 router.post('/save', function (req, res, next) {
-    let updatequery = "UPDATE service SET service_name = ?, description = ?, price = ? WHERE service_id = " + req.body.service_id;
+    let updatequery = "UPDATE service SET service_name = ?, description = ?, price = ?, serviceimg = ? WHERE service_id = " + req.body.service_id;
 
-    db.query(updatequery, [req.body.service_name, req.body.description, req.body.price], (err, result) => {
+    db.query(updatequery, [req.body.service_name, req.body.description, req.body.price,req.body.serviceimg], (err, result) => {
         if (err) {
             console.log(err);
             res.render('error');

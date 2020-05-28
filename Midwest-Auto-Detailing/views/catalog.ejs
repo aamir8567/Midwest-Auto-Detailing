@@ -1,0 +1,22 @@
+<div class="container-catalog">
+
+  <% if (catalog.length > 0) {%>
+    <% catalog.forEach((recref, index) => { %>
+
+      <div class ="catalog-card">
+        
+        <img src="/images/<%= recref.serviceimg %>" alt="<%= recref.serviceimg %>">
+        <h1><%= recref.service_name %></h1>
+        <p class="catalog-price">$<%= recref.price %></p>
+        <p class = "catalog-description"><%= recref.description %></p>
+        <p><a class="catalog-button" href='/catalog/<%= recref.service_id %>/add'> Add To Cart</a></p>
+    
+      </div>
+
+    <% }); %>
+  <% } else { %>
+      <p>Nothing to Display Now...Please visit us soon...</p>
+  <% } %>
+  
+</div>
+
