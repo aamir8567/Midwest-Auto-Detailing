@@ -24,8 +24,8 @@ var searchRouter = require('./routes/search');
 var reportRouter = require('./routes/report');
 var catalogRouter = require('./routes/catalog');
 
-const cart = [];
-global.cart = cart;
+
+const session = require('express-session');
 const mariadb = require('mariadb/callback');
 const db = mariadb.createConnection({host: 'eagle.cdm.depaul.edu',
 user: 'mpate180', password: 'mpate180', 
@@ -43,6 +43,11 @@ console.log("Unable to connect to database due to error: " + err);
 global.db = db;
 
 var app = express();
+app.use(session({secret: 'MidwestAutoSecret'}));
+app.use(function(req,res,next){
+    res.locals.session = req.session;
+    next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

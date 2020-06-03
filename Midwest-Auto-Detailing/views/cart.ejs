@@ -1,20 +1,92 @@
-<% if (cart.length > 0) {%>
-    <p> Here the packages selected in your cart: </p>
-        <table border=1>
-            <tr>
-                <th>Package ID</th>
-                <th>Action</th>
-    
-              <% cart.forEach((item, index) => { %>
-                <tr>
-                    <td><%= item %></td>
-                    <td><a href='/catalog/<%= index %>/remove'> Remove From Cart</a></td>
-                </tr>
-            <% }); %>
-        </table>
-    <% } else { %>
-            <p>Cart Is Empty</p>
-    <% } %>
-    
-    
-    
+<!--
+<% var totprice = 0 %>
+<% var totqty = 0 %>
+<% var lineitemcost = 0 %>
+<% if (cartitems != '0') {%>
+<p> Here products selected in your cart: </p>
+	<table border=1>
+		<tr>
+			<th>Service Name</th>
+			<th>Image</th>
+			<th>Sale Price</th>
+			<th>Quantity</th>
+			<th>Line Cost</th>
+			<th>Action</th>
+		</tr>
+      		<% cartitems.forEach((item, index) => { %>
+			<tr>
+				<td><%= item.service_name %></td>
+				<td><%= item.serviceimg %></td>
+				<td><%= item.price %></td>
+				<% totqty = totqty + parseInt(qtys[index]) %>
+				<% lineitemcost = item.price * parseInt(qtys[index]) %>
+				<td><%= qtys[index] %> </td>
+				<td><%= lineitemcost %> </td>
+				<% totprice = totprice + lineitemcost  %>
+				<td>
+					<form action="/catalog/remove" method="post" >
+						<input type="hidden" name="service_id" value=<%= item.service_id %> >
+						<button type="submit">Remove</button>
+					</form>
+				</td>
+            </tr>
+               
+        		<% }); %>
+		<tr bgcolor="yellow" >
+			<td colspan="4"><b>Totals</b></td>
+			<td><%= totqty %></td>
+			<td><%= totprice %></td>
+			<td><button class='button1' onclick="window.location.href='/catalog/checkout'">Checkout</button></td>
+		</tr>
+	</table>
+<% } else { %>
+        <p>Cart Is Empty</p>
+<% } %>
+-->
+<h3> Here products selected in your cart: </h3>
+
+<div class="container-cart">
+	<% var totprice = 0 %>
+	<% var totqty = 0 %>
+	<% var lineitemcost = 0 %>
+	<% if (cartitems != '0') {%>
+
+	<div class="cart-card">
+		<% cartitems.forEach((item, index) => { %>
+		<div class="cart-piece">
+			<span class="cart-piece-img">
+				<img src="/images/<%= item.serviceimg %>" alt="<%= item.serviceimg %>">
+			</span>
+			<span class="cart-piece-title">
+				<p class="cart-name"><%= item.service_name %></p>
+				<p class="cart-price">$ <%= item.price %></p>
+			</span>
+				<% totqty = totqty + parseInt(qtys[index]) %>
+				<% lineitemcost = item.price * parseInt(qtys[index]) %>
+			<span class="cart-piece-qty">
+				<p class="cart-qty">Quantity: <%= qtys[index] %> </p>
+			</span>
+			<span class="cart-piece-total">
+				<p class="cart-line-cost">Line Cost: <%= lineitemcost %> </p>
+				<% totprice = totprice + lineitemcost  %>
+			</span>
+			<span class="cart-piece-remove">
+				<form action="/catalog/remove" method="post" >
+					<input type="hidden" name="service_id" value=<%= item.service_id %> >
+					<button type="submit" class="cart-remove">Remove</button>
+				</form>
+			</span>
+				<br><br>
+		</div>
+		<% }); %>
+	</div>
+		<div class="cart-total">
+			<div class="cart-total-qty">Total Items: <%= totqty %></div>
+			<div class="cart-total-price">Final price: <%= totprice %></div>
+			<button class='button1' onclick="window.location.href='/catalog/checkout'">Checkout</button>
+		</div>
+</div>
+		<% } else { %>
+			<p>Cart Is Empty</p>
+	<% } %>
+

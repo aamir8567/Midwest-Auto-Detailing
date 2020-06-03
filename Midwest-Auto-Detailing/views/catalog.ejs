@@ -1,22 +1,52 @@
-<div class="container-catalog">
+<!--<% if (catalog.length > 0) {%>
+	<% catalog.forEach((recref, index) => { %>
+		<product><form action="/catalog/add" method="post" >
+			<input type="hidden" name="service_id" value=<%= recref.service_id %> > 
+			<table> 
+				<tr>
+					<td><b><%= recref.service_name %></b></td>
+					<td><%= recref.saleprice %></td>
+				</tr>
+				<tr>
+					<td><img src="/images/<%= recref.serviceimg %>"></td>
+					<td><%= recref.status %></td>
+				</tr>
+				<tr>
+					<td><%= recref.description %></td>
+				</tr>
+				<tr>
+					<td> Quantity: <input type="number" name="qty" value="1" required> </td>
+					<td> <button type="submit">Add to Cart</button></td>
+				</tr>
+			</table>
+		</form></product>
+	<% }); %>
+<% } %>
+	-->
+	
+	<div class="container-catalog">
 
-  <% if (catalog.length > 0) {%>
-    <% catalog.forEach((recref, index) => { %>
+		<% if (catalog.length > 0) {%>
+		  <% catalog.forEach((recref, index) => { %>
+			<product><form action="/catalog/add" method="post" >
+				<input type="hidden" name="service_id" value=<%= recref.service_id %> > 
 
-      <div class ="catalog-card">
-        
-        <img src="/images/<%= recref.serviceimg %>" alt="<%= recref.serviceimg %>">
-        <h1><%= recref.service_name %></h1>
-        <p class="catalog-price">$<%= recref.price %></p>
-        <p class = "catalog-description"><%= recref.description %></p>
-        <p><a class="catalog-button" href='/catalog/<%= recref.service_id %>/add'> Add To Cart</a></p>
-    
-      </div>
+			  <div class ="catalog-card"> 
+				<img src="/images/<%= recref.serviceimg %>" alt="<%= recref.serviceimg %>">
+				<h1><%= recref.service_name %></h1>
+				<p class="catalog-price">$<%= recref.price %></p>
+				<p class = "catalog-description"><%= recref.description %></p>
+				<p class = "catalog-qty">Quantity: <input type="number" name="qty" required value="1" required> </p>
+				<button type="submit">Add to Cart</button>
+		  
+			  </div>
+			</form></product>
+	  
+		  <% }); %>
+		<% } else { %>
+			<p>Nothing to Display Now...Please visit us soon...</p>
+		<% } %>
+		
+	  </div>
 
-    <% }); %>
-  <% } else { %>
-      <p>Nothing to Display Now...Please visit us soon...</p>
-  <% } %>
-  
-</div>
 
