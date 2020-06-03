@@ -30,6 +30,63 @@ router.post('/add', function(req, res, next) {
   res.redirect('/catalog/cart');
 });
 
+
+// ==================================================
+// Route to remove an item from the cart
+// ==================================================
+router.post('/remove', function(req, res, next) {
+	// Find the element index of the package_id that needs to be removed
+  var n = req.session.cart.indexOf(req.body.service_id);
+  
+  // Remove element from cart and quantity arrays
+  req.session.cart.splice(n,1);
+  req.session.qty.splice(n,1);
+
+	 res.redirect('/catalog/cart');
+
+});
+
+ // ==================================================
+// Route save cart items to SALEORDER and ORDERDETAILS tables
+// ==================================================
+router.get('/checkout', function(req, res, next) {
+	// Check to make sure the customer has logged-in
+	if (typeof req.session.customer_id !== 'undefined' && req.session.customer_id ) {
+		// Save SALEORDER Record:
+		let insertquery = "INSERT INTO workorder(customer_id, car_id, promo_id, addi_details, purchase_date, payment_status ) VALUES (?,'1','2','None', now(), 'Paid')"; 
+		db.query(insertquery,[req.session.customer_id],(err, result) => {
+			if (err) {
+				console.log(err);
+				res.render('error');
+			} else {
+				// Obtain the order_id value of the newly created SALEORDER Record
+					var order_id = result.insertId;
+				// Save ORDERDETAIL Records
+				// There could be one or more items in the shopping cart
+				req.session.cart.forEach((cartitem, index) => { 
+					// Perform ORDERDETAIL table insert
+					let insertquery = "INSERT INTO order_detail(order_id, service_id, sale_price, quantity) VALUES (?, ?, (SELECT price from service where service_id = " + cartitem + "), ?)";
+
+					db.query(insertquery,[order_id, cartitem, req.session.qty[index]],(err, result) => {
+						if (err) {res.render('error');}
+					});
+				});
+				// Empty out the items from the cart and quantity arrays
+				req.session.cart = [];
+				req.session.qty = [];
+				// Display confirmation page
+				res.render('checkout', {ordernum: order_id });
+				}		
+			});
+	}
+	else {
+		// Prompt customer to login
+		res.redirect('/customer/login');
+	}
+});
+
+
+
 // ==================================================
 // Route to show shopping cart
 // ==================================================
@@ -59,23 +116,6 @@ router.get('/', function(req, res, next) {
 				}
 			res.render('catalog', {catalog: result });
 			});
-
 });
 
-// ==================================================
-// Route to remove an item from the cart
-// ==================================================
-router.post('/remove', function(req, res, next) {
-	// Find the element index of the package_id that needs to be removed
-  var n = req.session.cart.indexOf(req.body.service_id);
-  
-  // Remove element from cart and quantity arrays
-  req.session.cart.splice(n,1);
-  req.session.qty.splice(n,1);
-
-	 res.redirect('/catalog/cart');
-
-});
-
- 
 module.exports = router;
