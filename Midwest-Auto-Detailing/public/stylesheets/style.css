@@ -213,7 +213,7 @@ topnav {
 .container-catalog div {
     background-color: #f1f1f1;
     min-width: 400px;
-    height: 450px;
+    height: 500px;
     margin: 10px;
     text-align: center;
     font-size: 15px;
@@ -248,7 +248,7 @@ topnav {
       height: 40%;
   }
   .catalog-description{
-      height: 25%;
+      height: 15%;
   } 
 .catalog-qty {
     width: 100%;

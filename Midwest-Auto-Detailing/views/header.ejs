@@ -9,8 +9,18 @@
                 <input type = "submit" value = "Search">
             </form>
         </td>
+            <td alight="right" width='2%' >
+                <% if(session.customer_id > 0) { %>
+                    <b> Hello <b> <%= session.custname %>! </b> </br>
+                    <a href='/customer/logout'>Logout</a> 
+            <% } else { %>
+                    <a href='/customer/addrecord'>New Customer</a> </br>
+                    <a href='/customer/login'>Login</a> 
+            <% } %>	
+            </td>
+                <!--<a href="/customer/login"><i class="fas fa-user" style= "font-size:48px;"></i></a> -->
+
         <td>
-            <a href="/catalog/cart"><i class="fas fa-user" style= "font-size:48px;"></i></a>
             <a href="/catalog/cart"><i class="fas fa-shopping-cart" style="font-size:48px;"></i></a>
         </td>
         <!--<td alight="right" width='2%' >Login</td>-->
